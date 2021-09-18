@@ -45,6 +45,11 @@ export function NavbarComponent(props: INavbarProps){
                                                     <Link to="/" id="logout" className={classes.link}>Logout</Link>
                                                 </Typography>
                                             </ListItemText>
+                                            <ListItemText inset>
+                                                <Typography color="inherit" variant="h6">
+                                                    <Link to="/dashboard" id="dashboard" className={classes.link}>Dashboard</Link>
+                                                </Typography>
+                                            </ListItemText>
                                         </>
                                         :
                                         <>

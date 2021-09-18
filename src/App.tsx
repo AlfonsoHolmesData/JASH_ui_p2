@@ -14,6 +14,7 @@ import DiscoverCollectionsComponent from './components/DiscoverCollectionsCompon
 import ViewCollectionComponent from './components/ViewCollectionComponent';
 import JoinGameComponent from './components/JoinGameComponent';
 import GameComponent from './components/GameComponent';
+import DashboardComponent from './components/DashboardComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Collections } from './dtos/collection';
@@ -65,6 +66,7 @@ function App() {
             <Route path="/view-collection" render={() => <ViewCollectionComponent currentUser={authUser} collection={currCollection} setCollection={setCurrCollection}/> } />
             <Route path="/join-game" render={() => <JoinGameComponent currentUser={authUser} currentGame={currentGame} setCurrentGame={setCurrentGame} currentGameId={currentGameId} setCurrentGameId={setCurrentGameId}/> } />
             <Route path="/game" render={() => <GameComponent currentUser={authUser} currentGameId={currentGameId} />} />
+            <Route path="/dashboard" render={() => <DashboardComponent currentUser={authUser}/> } />
         </Switch>
        </Router>
       </ThemeProvider>
