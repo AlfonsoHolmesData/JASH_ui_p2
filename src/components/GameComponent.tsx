@@ -296,7 +296,7 @@ function GameComponent(props: IGameProps) {
       console.log("The game is starting right now!");
       await firestore.updateDoc(gameDocRef, 'match_state', 2);
       streak = 0;
-      
+      numberOfCorrectAnswers = 0;
       setTrigger(trigger => !trigger);
     }
 
