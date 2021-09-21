@@ -195,6 +195,7 @@ function GameComponent(props: IGameProps) {
               })
               // Player has been kicked if their player data does not exist in db
               if (!playerNotKicked) {
+                console.log('THIS WAS HIT YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO');
                 if (temp.match_state == 0 || temp.match_state == 3) {
                   console.log('Player is not in player list, must be kicked')
                   history.push('/join-game');
