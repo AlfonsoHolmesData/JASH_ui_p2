@@ -198,6 +198,8 @@ function GameComponent(props: IGameProps) {
                 if (temp.match_state == 0 || temp.match_state == 3) {
                   console.log('Player is not in player list, must be kicked')
                   history.push('/join-game');
+                } else {
+                  firestore.addDoc(playersRef, currentPlayer);
                 }
               }
 
