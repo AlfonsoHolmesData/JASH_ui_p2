@@ -177,6 +177,7 @@ function GameComponent(props: IGameProps) {
               let playersDocArr = await getPlayers(props.currentGameId, playersRef);
               let playersArr : Player[] = [];
 
+              console.log('Player array after get players:', playersDocArr);
               let playerNotKicked = false;
               playersDocArr.forEach(player => {
                 // console.log('Player:', player);
@@ -257,10 +258,9 @@ function GameComponent(props: IGameProps) {
     }, [])
 
     // Get players from collections
-    async function getPlayers(gameid: string, playersRef : firestore.CollectionReference<unknown>) {
-        // console.log('Players collection: ', await firestore.getDocs(playersRef));
-        
+    async function getPlayers(gameid: string, playersRef : firestore.CollectionReference<unknown>) {        
         let gameplayers = await firestore.getDocs(playersRef)
+        console.log('Players collection: ', gameplayers);
         //@ts-ignore
         let playerarr = [];
         gameplayers.forEach(player => {
@@ -273,6 +273,7 @@ function GameComponent(props: IGameProps) {
             streak: fields.streak.integerValue,
             answered_at: fields.answered_at.timestampValue,
             points : fields.points.integerValue,
+            answered_correctly : fields.answered_correctly.booleanValue,
             icon : fields.icon.stringValue
           }
           playerarr.push(playerStructure)
