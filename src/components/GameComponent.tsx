@@ -195,8 +195,10 @@ function GameComponent(props: IGameProps) {
               })
               // Player has been kicked if their player data does not exist in db
               if (!playerNotKicked) {
-                console.log('Player is not in player list, must be kicked')
-                history.push('/join-game');
+                if (temp.match_state == 0 || temp.match_state == 3) {
+                  console.log('Player is not in player list, must be kicked')
+                  history.push('/join-game');
+                }
               }
 
               let newGame : GameState = {
@@ -510,7 +512,7 @@ function GameComponent(props: IGameProps) {
                 {console.log('Rerendered: ', props.currentGameId, game.match_state)}              
                 {/* Player List */}
                 {console.log('Players AND game in return line 187', game?.players, game)}
-                <PlayersComponent key={1} players={game?.players} user={props.currentUser} host={game.host} kickPlayer={kickPlayer}/>
+                <PlayersComponent key={1} players={game?.players} user={props.currentUser} host={game.host} kickPlayer={kickPlayer} matchState={game.match_state}/>
 
                 {/* If game state changes to 2, start timer, set game state to 1 when timer ends */}
                 {
@@ -698,7 +700,7 @@ function PlayersComponent(props: any) {
 
                                   {
                                     // Host player has Kick Player buttons attached to other players
-                                    (props.user.username == props.host && player.name != props.user.username) ?
+                                    (props.user.username == props.host && player.name != props.user.username && (props.matchState == 0 || props.matchState == 3)) ?
                                     <Button style={buttonStyle} onClick={() => props.kickPlayer(player)}>Kick Player</Button>
                                     : <></>
                                   }
