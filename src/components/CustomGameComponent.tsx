@@ -77,7 +77,7 @@ function CustomGameComponent(props: IGameCustomCollectionProps) {
     let [errorMessage, setErrorMessage] = useState('');
     let [showSettings, setShowSettings] = useState(false);
     let [currentCollection, setCurrentCollection] = useState(undefined as Collections | undefined);
-
+    let [currentQL, setQL] = useState(undefined as Question[] | undefined);
     let history = useHistory();
 
     function displayModal() {
@@ -180,19 +180,19 @@ function CustomGameComponent(props: IGameCustomCollectionProps) {
                    console.log(" on");
                 collectionQLVisible = true;
                 showQuestionListText = "Preview";
-                targetCollectionQuestionsList = currentCollection?.questionList;
+                setQL(currentCollection?.questionList);
+                targetCollectionQuestionsList = currentQL ;
                 props.setSelectedCollection(currentCollection);
            
            }else{
             console.log(" off ");
-            if(currentCollection)
-             currentCollection.questionList = [];
+           
 
                 collectionQLVisible = false;
                 showQuestionListText = "-";  
              
-                
-                targetCollectionQuestionsList = currentCollection?.questionList;
+                setQL(undefined);
+                targetCollectionQuestionsList = currentQL ;
                  props.setSelectedCollection(currentCollection);
                
            }
