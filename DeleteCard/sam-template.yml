@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: A simple AWS Lambda for searching book records within a DynamoDB table.
+Resources:
+  GetBooksFx:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: target/delete-card-1.0-SNAPSHOT.jar
+      Handler: com.revature.delete_card.DeleteCardHandler
+      Runtime: java8.al2
+      Description: Java function
+      MemorySize: 256
+      Timeout: 30
+      Tracing: Active
+      Policies:
+        - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+
+
