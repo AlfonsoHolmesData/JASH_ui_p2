@@ -1,0 +1,5 @@
+com\revature\delete_set\Tag.class
+com\revature\delete_set\Set.class
+com\revature\delete_set\Card.class
+com\revature\delete_set\DeleteSetHandler.class
+com\revature\delete_set\SetRepo.class
