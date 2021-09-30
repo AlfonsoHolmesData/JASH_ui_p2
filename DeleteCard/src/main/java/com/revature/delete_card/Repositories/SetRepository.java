@@ -26,7 +26,7 @@ public class SetRepository {
      * Deletes a card from the target Set by id
      *
      * @param id
-     * @Authors Alfonso Holmes
+     * @Authors Alfonso Holmes.
      */
     public Set deleteCardBySetId(String id , String card_id) {
         // 1) creating new set_document for query
